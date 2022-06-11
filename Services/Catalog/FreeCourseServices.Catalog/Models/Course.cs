@@ -21,6 +21,9 @@ namespace FreeCourseServices.Catalog.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string CategoryId { get; set; }
 
+        [BsonIgnore]
+        public Category Category { get; set; }
+
         public string Picture { get; set; }
 
         [BsonRepresentation(BsonType.DateTime)]
