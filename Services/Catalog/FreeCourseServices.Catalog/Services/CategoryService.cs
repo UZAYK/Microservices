@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FreeCourseServices.Catalog.Services
 {
-    internal class CategoryService
+    internal class CategoryService : ICategoryService
     {
         private readonly IMongoCollection<Category> _categoryCollection;
         private readonly IMapper _mapper;

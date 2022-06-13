@@ -1,3 +1,4 @@
+using FreeCourseServices.Catalog.Services;
 using FreeCourseServices.Catalog.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,8 @@ namespace FreeCourseServices.Catalog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ICategoryService, CategoryService>();
+
             // configuration transactionlarýný bir class üzerinden okuma optionsPattern denir.
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
@@ -40,6 +43,7 @@ namespace FreeCourseServices.Catalog
                 /// Mutlaka olmasý gerekir.
                 return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
             });
+
 
             services.AddSwaggerGen(c =>
             {
